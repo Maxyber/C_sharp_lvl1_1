@@ -112,9 +112,9 @@ namespace Homework
             string strX, strY; // переменные для которых требуется обмен значениями
             int XX, YY;
             Console.Clear();
-            Console.WriteLine("Введите значение первой переменной x");
+            Console.WriteLine("Введите числовое значение первой переменной x");
             strX = Console.ReadLine();
-            Console.WriteLine("Введите значение второй переменной y");
+            Console.WriteLine("Введите числовое значение второй переменной y");
             strY = Console.ReadLine();
             // обмен значениями переменных с использованием третьей любой тип
             /*
