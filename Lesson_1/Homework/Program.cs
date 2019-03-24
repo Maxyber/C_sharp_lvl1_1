@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassConsoleInOut;  // самостоятельно созданный класс с полезными библиотеками
+using MaxyClass;  // самостоятельно созданный класс с полезными библиотеками
 
 namespace Homework
 {
@@ -76,7 +76,7 @@ namespace Homework
             Console.Clear();
             Console.WriteLine(Family + " " + Name + ", возраст " + Age + " лет, вес " + Weight + " килограмм при росте " + Height + " сантиметров."); // способ вывода на экран склеиванием
             Console.WriteLine("{0} {1}, возраст {2} лет, вес {3} килограмм при росте {4} сантиметров.", Family, Name, Age, Weight, Height); // форматированный вывод на экран
-            ClassConsole.ConsolePrint($"{Family} {Name}, возраст {Age} лет, вес {Weight} килограмм при росте {Height} сантиметров."); // форматированный вывод через знак $
+            Maxyber.ConsolePrint($"{Family} {Name}, возраст {Age} лет, вес {Weight} килограмм при росте {Height} сантиметров."); // форматированный вывод через знак $
 
             /* Задание №2. Ввести вес и рост человека. Рассчитать и вывести индекс массы тела (ИМТ) по формуле I=m/(h*h); где m — масса тела в килограммах, h — рост в метрах.
             */
@@ -102,7 +102,7 @@ namespace Homework
             Console.WriteLine($"x1 - {x1}, y1 = {y1}, x2 - {x2}, y2 - {y2}");
 
             Console.WriteLine($"Расстояние между точкам: {PointsDistanceMethod(x1, y1, x2, y2):f2}");
-            ClassConsole.ConsolePause();
+            Maxyber.ConsolePause();
             /* Задание №4.
             Написать программу обмена значениями двух переменных:
             а) с использованием третьей переменной;
@@ -163,12 +163,12 @@ namespace Homework
             consoleHeight = consoleHeight + 1;
 
             PrintMsg(consoleWidth, consoleHeight, City); // вывод второй строки сообщения
-            ClassConsole.ConsolePause();
+            Maxyber.ConsolePause();
             /* Задание №6.
             *Создать класс с методами, которые могут пригодиться в вашей учебе(Print, Pause).
             */
             Console.Clear();
-            ClassConsole.ConsolePrint("Проверка работоспособности метода, который создан в собственном классе и должен поставить паузу после вывода этого сообщения");
+            Maxyber.ConsolePrint("Проверка работоспособности метода, который создан в собственном классе и должен поставить паузу после вывода этого сообщения");
 
         }
     }
