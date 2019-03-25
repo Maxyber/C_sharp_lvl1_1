@@ -130,7 +130,7 @@ namespace MaxyClass
                 Maxyber.ConsolePrint("У вас избыточный вес, для приведения веса в норму необходимо похудеть не менее, чем на " + weightCorrection +" килограммов");
             } else if (userIMT < 18.5)
             {
-                weightCorrection = Math.Round(100 * (userWeight - (24.99 * userHeight * userHeight))) / 100;
+                weightCorrection = Math.Round(100 * ((18.5 * userHeight * userHeight) - userWeight)) / 100;
                 Maxyber.ConsolePrint("У вас недостаток веса, для приведения этого показателя в норму необходимо набрать не менее " + weightCorrection + " килограммов");
             } else
             {
@@ -139,6 +139,30 @@ namespace MaxyClass
 
 
             return userIMT;
+        }
+        static public int CalcGoodNumbers(long maxLine)
+        {
+            int count = 0;
+            int sumNumbers = 0;
+            int number = 0;
+            for (int i = 1; i <= maxLine; i++)
+            {
+                number = i;
+                sumNumbers = 0;
+
+                do
+                {
+                    sumNumbers = sumNumbers + number % 10;
+                    number = number / 10;
+                }
+                while ((number % 10) > 0);
+                if (i % sumNumbers == 0)
+                {
+                    count = count + 1;
+                    Console.WriteLine("Хорошее число - " + i + " с суммой чисел " + sumNumbers);
+                }
+            }
+            return count;
         }
         static public string[] AskAnketa(string[] arr)
         {
