@@ -112,15 +112,47 @@ namespace MaxyClass
                 }
             } while (count < i);
         }
-        static public double calcIMT()
-        {
-            int[] userArray = Maxyber.AskAnketa({"Введите свой рост: ", "Введите свой вес: "});
-            double IMT = int[1] / (int[0] * int[0]);
-            return IMT;
-        }
-        static public void AskAnketa(string[] arr)
+        static public double CalcIMT()
         {
 
+            // string[] userArray = Maxyber.AskAnketa({ "Введите свой рост: ", "Введите свой вес: "}); раскомментировать функцию после доделки метода AskAnketa
+            Console.Write("Введите свой рост в сантиметрах: ");
+            double userHeight = Convert.ToDouble(Console.ReadLine())/100;
+            Console.Write("Введите свой вес в килограммах: ");
+            int userWeight = Convert.ToInt32(Console.ReadLine());
+            // double IMT = userArray[1] / (userArray[0] * userArray[0]); раскоментировать строку после доделки метода AskAnketa
+            double userIMT = userWeight / (userHeight * userHeight);
+            // добавить вызов функции проверки нормальности ИМТ
+            double weightCorrection = 0;
+            if (userIMT > 24.99)
+            {
+                weightCorrection = Math.Round(100 * (userWeight - (24.99 * userHeight * userHeight)))/100;
+                Maxyber.ConsolePrint("У вас избыточный вес, для приведения веса в норму необходимо похудеть не менее, чем на " + weightCorrection +" килограммов");
+            } else if (userIMT < 18.5)
+            {
+                weightCorrection = Math.Round(100 * (userWeight - (24.99 * userHeight * userHeight))) / 100;
+                Maxyber.ConsolePrint("У вас недостаток веса, для приведения этого показателя в норму необходимо набрать не менее " + weightCorrection + " килограммов");
+            } else
+            {
+                Maxyber.ConsolePrint("Ваш вес в норме, корректировки не требуются.");
+            }
+
+
+            return userIMT;
+        }
+        static public string[] AskAnketa(string[] arr)
+        {
+            // доделать функцию, которая запрашивает у пользователя любые данные
+            // на входе функция получает из запроса массив string[i], содержащий запросы на определенные данные
+            // на выходе функция выдает массив string[i], содержащий ответы пользователя на вопросы
+            string[] arrResult = new string[arr.Length - 1];
+            for (int i = 0; i < arr.Length; i++)
+                {
+                Console.WriteLine(arr[i]);
+                arrResult[i] = Console.ReadLine();
+                }
+
+            return arrResult;
         }
     }
 }
