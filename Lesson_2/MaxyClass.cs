@@ -18,7 +18,20 @@ namespace MaxyClass
         static public void ConsolePrint(string str)
         {
             Console.WriteLine(str);
+            Console.WriteLine("Для продолжения нажмите любую клавишу...");
             Console.ReadKey();
+        }
+        static public int AskInteger()
+        {
+            int result;
+            string str;
+            bool flag;
+            do
+            {
+                str = Console.ReadLine();
+                flag = int.TryParse(str, out result);
+            } while (flag != true);
+            return result;
         }
         // ищет минимальное число среди массива чисел
         static public int minNumber(int[] nums)
@@ -54,22 +67,29 @@ namespace MaxyClass
         // метод запрашивает у пользователя любое количество целых чисел и записывает их в массив до тех пор, пока не был введет 0
         static public int[] InputIntArray()
         {
+            Console.Clear();
+            Console.WriteLine("Введите любое количество целых чисел массива, но не менее одного числа.");
+            Console.WriteLine("Для выхода из интерфейса наберите 0. В случае ошибки повторите правильный ввод");
             int[] arr = new int[0];
-            int i = 0;
-            int str = Convert.ToInt32(Console.ReadLine());
-            while (str != 0)
+            int i = 0, x;
+            do
             {
-                i++;
-                Array.Resize<int>(ref arr, i);
-                arr[i - 1] = str;
-                str = Convert.ToInt32(Console.ReadLine());
-            }
-            return arr;
+                x = AskInteger();
+                Console.Write("Число " + x + " принято. Следующее число: ");
+                if (x != 0)
+                {
+                    i++;
+                    Array.Resize<int>(ref arr, i);
+                    arr[i - 1] = x;
+                }
+            } while (x != 0);
+                return arr;
 
         }
         // метод выводит на экран целочисленный массив любой длины
         static public void ConsolePrintArray(int[] arr)
         {
+            Console.Clear();
             Console.Write("Массив: ");
             foreach (int i in arr)
             {
@@ -78,7 +98,7 @@ namespace MaxyClass
             Console.WriteLine("конец массива.");
         }
         // метод считаем сумму нечетных положительных чисел массива
-        static public long SummArray(int[] arr)
+        static public void SummArray(int[] arr)
         {
             long sum = 0;
             foreach (int i in arr)
@@ -88,7 +108,7 @@ namespace MaxyClass
                     sum = sum + i;
                 }
             }
-            return sum;
+            ConsolePrint("Сумма положительных нечетных чисел массива: " + sum);
         }
         // метод проверяет сочетание логин/пароль и возвращает значение true или false
         static public bool UserLogPassCheck()
@@ -107,10 +127,10 @@ namespace MaxyClass
             do
             {
                 count++;
-                bool passCheck = Maxyber.UserLogPassCheck();
+                bool passCheck = UserLogPassCheck();
                 if (passCheck == true)
                 {
-                    Maxyber.ConsolePrint("Пароль принят, приятной работы.");
+                    ConsolePrint("Пароль принят, приятной работы.");
                     break;
                 }
                 else
@@ -118,7 +138,7 @@ namespace MaxyClass
                     Console.WriteLine("Введена неверная комбинация логина и пароля, повторите попытку.");
                     if (count == i)
                     {
-                        Maxyber.ConsolePrint($"Вы ввели неверную комбинацию логина и пароля {i} раз, доступ заблокирован.");
+                        ConsolePrint($"Вы ввели неверную комбинацию логина и пароля {i} раз, доступ заблокирован.");
                     }
                 }
             } while (count < i);
@@ -138,16 +158,16 @@ namespace MaxyClass
             if (userIMT > 24.99)
             {
                 weightCorrection = Math.Round(100 * (userWeight - (24.99 * userHeight * userHeight))) / 100;
-                Maxyber.ConsolePrint("У вас избыточный вес, для приведения веса в норму необходимо похудеть не менее чем на " + weightCorrection + " килограммов");
+                ConsolePrint("У вас избыточный вес, для приведения веса в норму необходимо похудеть не менее чем на " + weightCorrection + " килограммов");
             }
             else if (userIMT < 18.5)
             {
                 weightCorrection = Math.Round(100 * ((18.5 * userHeight * userHeight) - userWeight)) / 100;
-                Maxyber.ConsolePrint("У вас недостаток веса, для приведения этого показателя в норму необходимо набрать не менее " + weightCorrection + " килограммов");
+                ConsolePrint("У вас недостаток веса, для приведения этого показателя в норму необходимо набрать не менее " + weightCorrection + " килограммов");
             }
             else
             {
-                Maxyber.ConsolePrint("Ваш вес в норме, корректировки не требуются.");
+                ConsolePrint("Ваш вес в норме, корректировки не требуются.");
             }
             return userIMT;
         }
