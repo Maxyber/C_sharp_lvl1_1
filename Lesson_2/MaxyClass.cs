@@ -163,12 +163,14 @@ namespace MaxyClass
             {
                 number = i;
                 sumNumbers = 0;
-                if ((maxLine > 100000) && (i % 10000 == 0)) // добавляем счетчик процентов выполнения программы
+                
+                if ((maxLine > 100000) && (i % (maxLine/1000) == 0)) // добавляем счетчик процентов выполнения программы
                 {
                     Console.SetCursorPosition(0, 0);
                     double percentage = (i * 100) / maxLine;
                     Console.Write("Ход выполнения программы " + percentage + "%");
                 }
+                
                 do // считаем сумму всех цифр числа и проверяем является ли это число "хорошим"
                 {
                     sumNumbers = sumNumbers + number % 10;
@@ -201,6 +203,7 @@ namespace MaxyClass
             else if (a == b) return a;
             return a;
         }
+        // метод запроса двух чисел для интервала, используемого в рекурсивной функции
         static public int[] AskRecursiveNums()
         {
             int[] arr = new int[2];
