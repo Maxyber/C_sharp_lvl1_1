@@ -48,8 +48,8 @@ namespace Lesson_3
             do
             {
                 result.deno = Maxyber.AskInteger();
-                if (deno == 0) Console.WriteLine("Знаменатель дроби не может быть равным нулю, повторите ввод.");
-            } while (deno == 0);
+                if (result.deno == 0) Console.WriteLine("Знаменатель дроби не может быть равным нулю, повторите ввод.");
+            } while (result.deno == 0);
             return result;
         }
         public new string ToString()
@@ -90,11 +90,36 @@ namespace Lesson_3
             return x3;
         }
 
-        public Fractions Contraction(Fractions x) // НЕ ДОДЕЛАН метод сокращения дробей
+        public Fractions Contraction() // НЕ ДОДЕЛАН метод сокращения дробей
         {
-            Fractions res = new Fractions();
-            res = x;
-            return res;
+            int nod = 1;
+            double a, b, temp;
+            if (this.no >= this.deno)
+            {
+                a = this.no;
+                b = this.deno;
+            }
+            else
+            {
+                a = this.deno;
+                b = this.no;
+            }
+            while (a != 0 && b != 0)
+            {
+                if (a % b == 0) {
+                    nod = Convert.ToInt32(b);
+                    break;
+                }
+                else
+                {
+                    temp = a % b;
+                    a = b;
+                    b = temp;
+                }
+            }
+            this.no = this.no / nod;
+            this.deno = this.deno / nod;
+            return this;
         }
     }
     class Complex
@@ -149,6 +174,7 @@ namespace Lesson_3
     {
         static void Main(string[] args)
         {
+            /*
             // Задание №1 а) Дописать структуру Complex, добавив метод вычитания комплексных чисел. Продемонстрировать работу структуры.
             //  б) Дописать класс Complex, добавив методы вычитания и произведения чисел.Проверить работу класса.
             //  в) Добавить диалог с использованием switch демонстрирующий работу класса.
@@ -167,7 +193,7 @@ namespace Lesson_3
             arr = Maxyber.InputIntArray();
             Maxyber.ConsolePrintArray(arr);
             Maxyber.SummArray(arr);
-
+            */
             // Задание №3. *Описать класс дробей — рациональных чисел, являющихся отношением двух целых чисел. Предусмотреть методы сложения, вычитания, умножения и деления дробей. 
             // Написать программу, демонстрирующую все разработанные элементы класса.
             // *Добавить свойства типа int для доступа к числителю и знаменателю;
@@ -177,8 +203,12 @@ namespace Lesson_3
 
             Fractions frac1 = new Fractions();
             frac1 = frac1.AskNumber();
+            frac1 = frac1.Contraction();
+            Maxyber.ConsolePrint(frac1.ToString());
             Fractions frac2 = new Fractions();
             frac2 = frac2.AskNumber();
+            frac2 = frac2.Contraction();
+            Maxyber.ConsolePrint(frac2.ToString());
 
             FractionsCalc(frac1, frac2);
 
@@ -234,7 +264,7 @@ namespace Lesson_3
             string userProcedure = "";
             do
             {
-                Console.WriteLine("Введите необходимы тип операции с комплексными числами (+/сложение, -/вычитание, */умножение или произведение, \/ или деление), введите \"exit\" для выхода");
+                Console.WriteLine("Введите необходимы тип операции с комплексными числами (+/сложение, -/вычитание, */умножение или произведение, / или деление), введите \"exit\" для выхода");
                 userProcedure = Console.ReadLine();
                 Fractions newResult = new Fractions();
 
