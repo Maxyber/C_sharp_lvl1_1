@@ -36,8 +36,8 @@ namespace Lesson_3
     */
     class Fractions
     {
-        public double no; // nominator = числитель
-        public double deno; // denominator = знаменатель
+        public int no; // nominator = числитель
+        public int deno; // denominator = знаменатель
 
         public Fractions AskNumber()
         {
@@ -50,22 +50,38 @@ namespace Lesson_3
                 result.deno = Maxyber.AskInteger();
                 if (result.deno == 0) Console.WriteLine("Знаменатель дроби не может быть равным нулю, повторите ввод.");
             } while (result.deno == 0);
+            result = result.Contraction();
             return result;
-        }
+        }// метод ввода дроби с клавиатуры посредством ввода двух целых чисел числителя и знаменателя
         public new string ToString()
         {
             if (((no >= 0) && (deno > 0)) || ((no < 0) && (deno < 0)))
                 return no + "/" + deno;
             else
                 return "-" + no + "/" + deno;
-        }
-        public double ToDouble => (no / deno);
-
+        }// приведение дроби к строке для вывода
+        public double ToDouble => (float)no / deno; // приведение дроби к десятичной
+        public int getNominator => no; // вывод числителя дроби
+        public int getDenominator => deno; // вывод знаменателя дроби
+        public void setNoDeno(string target)
+        {
+            Fractions frac = new Fractions();
+            frac = this;
+            Console.Write("Введите новое число: ");
+            int x = Maxyber.AskInteger();
+            if (target == "no") frac.no = x;
+            else frac.deno = x;
+            frac = frac.Contraction();
+            this.no = frac.no;
+            this.deno = frac.deno;
+            Maxyber.ConsolePrint("Вы изменили дробь на " + this.ToString());
+        }// изменение числителя или знаменателя дроби
         public Fractions Plus(Fractions x2) // сложение чисел a/b + c/d = (ad + cb) / bd
         {
             Fractions x3 = new Fractions();
             x3.deno = x2.deno * this.deno;
             x3.no = (this.no * x2.deno) + (x2.no * this.deno);
+            x3 = x3.Contraction();
             return x3;
         }
         public Fractions Minus(Fractions x2) // вычитание чисел a/b - c/d = (ad - cb) / bd 
@@ -73,6 +89,7 @@ namespace Lesson_3
             Fractions x3 = new Fractions();
             x3.no = (this.no * x2.deno) - (x2.no * this.deno);
             x3.deno = this.deno * x2.deno;
+            x3 = x3.Contraction();
             return x3;
         }
         public Fractions Multi(Fractions x2) // умножение чисел a/b * c/d = ac/bd
@@ -80,6 +97,7 @@ namespace Lesson_3
             Fractions x3 = new Fractions();
             x3.no = (x2.no) * (this.no);
             x3.deno = (x2.deno) * (this.deno);
+            x3 = x3.Contraction();
             return x3;
         }
         public Fractions Division(Fractions x2) // умножение чисел a/b / c/d = ad/bc
@@ -87,13 +105,14 @@ namespace Lesson_3
             Fractions x3 = new Fractions();
             x3.no = (x2.deno) * (this.no);
             x3.deno = (x2.no) * (this.deno);
+            x3 = x3.Contraction();
             return x3;
         }
 
-        public Fractions Contraction() // НЕ ДОДЕЛАН метод сокращения дробей
+        public Fractions Contraction() // метод сокращения дробей
         {
             int nod = 1;
-            double a, b, temp;
+            int a, b, temp;
             if (this.no >= this.deno)
             {
                 a = this.no;
@@ -106,7 +125,8 @@ namespace Lesson_3
             }
             while (a != 0 && b != 0)
             {
-                if (a % b == 0) {
+                if (a % b == 0)
+                {
                     nod = Convert.ToInt32(b);
                     break;
                 }
@@ -138,7 +158,7 @@ namespace Lesson_3
             result.im = Convert.ToInt32(Console.ReadLine());
             Maxyber.ConsolePrint("Вы ввели число: " + result.ToString());
             return result;
-        }
+        }// метод ввода комплексного числа с клавиатуры посредством ввода двух целых чисел действительного и мнимого
         public Complex Plus(Complex x2) // сложение чисел a + bi , c + di
         {
             Complex x3 = new Complex();
@@ -166,7 +186,7 @@ namespace Lesson_3
                 return re + "+" + im + "i";
             else
                 return re + "-" + -1 * im + "i";
-        }
+        } // приведение комплексного числа к строке для последующего вывода на экран
 
     }
 
@@ -174,7 +194,7 @@ namespace Lesson_3
     {
         static void Main(string[] args)
         {
-            /*
+            
             // Задание №1 а) Дописать структуру Complex, добавив метод вычитания комплексных чисел. Продемонстрировать работу структуры.
             //  б) Дописать класс Complex, добавив методы вычитания и произведения чисел.Проверить работу класса.
             //  в) Добавить диалог с использованием switch демонстрирующий работу класса.
@@ -193,22 +213,20 @@ namespace Lesson_3
             arr = Maxyber.InputIntArray();
             Maxyber.ConsolePrintArray(arr);
             Maxyber.SummArray(arr);
-            */
+            
             // Задание №3. *Описать класс дробей — рациональных чисел, являющихся отношением двух целых чисел. Предусмотреть методы сложения, вычитания, умножения и деления дробей. 
             // Написать программу, демонстрирующую все разработанные элементы класса.
             // *Добавить свойства типа int для доступа к числителю и знаменателю;
             // *Добавить свойство типа double только на чтение, чтобы получить десятичную дробь числа;
             // **Добавить проверку, чтобы знаменатель не равнялся 0.Выбрасывать исключение ArgumentException("Знаменатель не может быть равен 0");
             // ***Добавить упрощение дробей.
-
+            
             Fractions frac1 = new Fractions();
             frac1 = frac1.AskNumber();
-            frac1 = frac1.Contraction();
-            Maxyber.ConsolePrint(frac1.ToString());
+            Maxyber.ConsolePrint("Вы ввели дробь " + frac1.ToString());
             Fractions frac2 = new Fractions();
             frac2 = frac2.AskNumber();
-            frac2 = frac2.Contraction();
-            Maxyber.ConsolePrint(frac2.ToString());
+            Maxyber.ConsolePrint("Вы ввели дробь " + frac2.ToString());
 
             FractionsCalc(frac1, frac2);
 
@@ -264,12 +282,16 @@ namespace Lesson_3
             string userProcedure = "";
             do
             {
-                Console.WriteLine("Введите необходимы тип операции с комплексными числами (+/сложение, -/вычитание, */умножение или произведение, / или деление), введите \"exit\" для выхода");
+                Console.WriteLine("Введите необходимы тип операции с дробями");
+                Console.WriteLine("Списко команд: +, -, *, /, deci, ч1, ч2, з1, з2, help, exit");
                 userProcedure = Console.ReadLine();
                 Fractions newResult = new Fractions();
 
                 switch (userProcedure)
                 {
+                    case "help":
+                        Console.WriteLine("Команды:\n  + / сложение - сложение дробей\n  - / вычитание - вычитание дробей\n  * / умножение - перемножение дробей\n  / или деление - деление дробей\n  deci / десятичное - десятичное представление дробей\n  ч1/2 или числитель1/2 - изменение числителя первой или второй дроби\n  з1/2 или знаменатель1/2 - изменение знаменателя первой или второй дроби\n  exit - выход из калькулятора\n  help - вывод этого сообщения.\n\n");
+                        break;
                     case "+":
                     case "сложение":
                         newResult = number1.Plus(number2);
@@ -291,11 +313,31 @@ namespace Lesson_3
                         newResult = number1.Division(number2);
                         Maxyber.ConsolePrint(number1.ToString() + " / " + number2.ToString() + " = " + newResult.ToString());
                         break;
+                    case "deci":
+                    case "десятичное":
+                        Maxyber.ConsolePrint($"Первая дробь: {number1.ToDouble}, вторая дробь: {number2.ToDouble}");
+                        break;
+                    case "ч1":
+                    case "числитель1":
+                        number1.setNoDeno("no");
+                        break;
+                    case "ч2":
+                    case "числитель2":
+                        number2.setNoDeno("no");
+                        break;
+                    case "з1":
+                    case "знаменатель1":
+                        number1.setNoDeno("deno");
+                        break;
+                    case "з2":
+                    case "знаменатель2":
+                        number2.setNoDeno("deno");
+                        break;
                     case "exit":
-                        Maxyber.ConsolePrint("Спасибо за пользование калькулятором комплексных чисел. Всего доброго.");
+                        Maxyber.ConsolePrint("Спасибо за пользование калькулятором дробей. Всего доброго.");
                         return;
                     default:
-                        Maxyber.ConsolePrint("Тип операции выбран неверно");
+                        Maxyber.ConsolePrint("Тип операции выбран неверно, попробуйте заново.");
                         break;
                 }
             } while (userProcedure != "exit");

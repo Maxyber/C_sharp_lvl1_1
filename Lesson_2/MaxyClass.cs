@@ -30,6 +30,7 @@ namespace MaxyClass
             {
                 str = Console.ReadLine();
                 flag = int.TryParse(str, out result);
+                if (flag != true) Console.WriteLine("Ошибка. Необходим ввод только целого числа!");
             } while (flag != true);
             return result;
         }
