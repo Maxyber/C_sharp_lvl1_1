@@ -39,7 +39,7 @@ namespace Lesson_3
         public int no; // nominator = числитель
         public int deno; // denominator = знаменатель
 
-        public Fractions AskNumber()
+        public Fractions AskNumber() // метод ввода дроби с клавиатуры посредством ввода двух целых чисел числителя и знаменателя
         {
             Fractions result = new Fractions();
             Console.Write("Введите числитель: ");
@@ -52,18 +52,20 @@ namespace Lesson_3
             } while (result.deno == 0);
             result = result.Contraction();
             return result;
-        }// метод ввода дроби с клавиатуры посредством ввода двух целых чисел числителя и знаменателя
-        public new string ToString()
+        }
+        public new string ToString() // приведение дроби к строке для вывода
         {
-            if (((no >= 0) && (deno > 0)) || ((no < 0) && (deno < 0)))
+            if ((no >= 0) && (deno > 0) || ((no < 0) && (deno > 0)))
                 return no + "/" + deno;
+            else if ((no < 0) && (deno < 0))
+                return -1*no + "/" + -1*deno;
             else
-                return "-" + no + "/" + deno;
-        }// приведение дроби к строке для вывода
+                return "-" + no + "/" + -1 * deno;
+        }
         public double ToDouble => (float)no / deno; // приведение дроби к десятичной
         public int getNominator => no; // вывод числителя дроби
         public int getDenominator => deno; // вывод знаменателя дроби
-        public void setNoDeno(string target)
+        public void setNoDeno(string target) // изменение числителя или знаменателя дроби
         {
             Fractions frac = new Fractions();
             frac = this;
@@ -75,7 +77,7 @@ namespace Lesson_3
             this.no = frac.no;
             this.deno = frac.deno;
             Maxyber.ConsolePrint("Вы изменили дробь на " + this.ToString());
-        }// изменение числителя или знаменателя дроби
+        }
         public Fractions Plus(Fractions x2) // сложение чисел a/b + c/d = (ad + cb) / bd
         {
             Fractions x3 = new Fractions();
@@ -149,7 +151,7 @@ namespace Lesson_3
         public double im;
         public double re;
 
-        public Complex AskNumber()
+        public Complex AskNumber() // метод ввода комплексного числа с клавиатуры посредством ввода двух целых чисел действительного и мнимого
         {
             Complex result = new Complex();
             Console.Write("Введите действительную часть комплексного числа: ");
@@ -158,7 +160,7 @@ namespace Lesson_3
             result.im = Convert.ToInt32(Console.ReadLine());
             Maxyber.ConsolePrint("Вы ввели число: " + result.ToString());
             return result;
-        }// метод ввода комплексного числа с клавиатуры посредством ввода двух целых чисел действительного и мнимого
+        }
         public Complex Plus(Complex x2) // сложение чисел a + bi , c + di
         {
             Complex x3 = new Complex();
@@ -180,13 +182,13 @@ namespace Lesson_3
             x3.im = (x2.im) * (this.re) + (x2.re) * (this.im);
             return x3;
         }
-        public new string ToString()
+        public new string ToString() // приведение комплексного числа к строке для последующего вывода на экран
         {
             if (im >= 0)
                 return re + "+" + im + "i";
             else
                 return re + "-" + -1 * im + "i";
-        } // приведение комплексного числа к строке для последующего вывода на экран
+        } 
 
     }
 
@@ -194,18 +196,13 @@ namespace Lesson_3
     {
         static void Main(string[] args)
         {
-            
+
             // Задание №1 а) Дописать структуру Complex, добавив метод вычитания комплексных чисел. Продемонстрировать работу структуры.
             //  б) Дописать класс Complex, добавив методы вычитания и произведения чисел.Проверить работу класса.
             //  в) Добавить диалог с использованием switch демонстрирующий работу класса.
-
-            // AskComplexNumbers(2); НЕ РАБОТАЕТ!!! метод формирования массива комплексных чисел, разобраться!!!
-            Complex complex1 = new Complex();
-            complex1 = complex1.AskNumber();
-            Complex complex2 = new Complex();
-            complex2 = complex2.AskNumber();
-
-            ComplexCalc(complex1, complex2);
+            Complex[] complexArr = new Complex[2];
+            complexArr = AskComplexNumbers(2); // метод формирования массива комплексных чисел, разобраться!!!
+            ComplexCalc(complexArr[0], complexArr[1]);
 
             // Задание №2 а)  С клавиатуры вводятся числа, пока не будет введён 0 (каждое число в новой строке). Требуется подсчитать сумму всех нечётных положительных чисел. 
             // Сами числа и сумму вывести на экран, используя tryParse.
@@ -232,12 +229,14 @@ namespace Lesson_3
 
         }
 
-        public static Complex[] AskComplexNumbers(int a) // НЕ РАБОТАЕТ!!! метод формирования массива комплесных чисел любой длины, разобраться.
+        public static Complex[] AskComplexNumbers(int a) // метод формирования массива комплесных чисел любой длины, разобраться.
         {
+            Complex complexTemp = new Complex();
             Complex[] complexArray = new Complex[a];
-            for (int i = 0; i <= a; i++)
+            for (int i = 0; i < a; i++)
             {
-                complexArray[0] = complexArray[0].AskNumber();
+                complexTemp = complexTemp.AskNumber();
+                complexArray[i] = complexTemp;
             }
             return complexArray;
         }
