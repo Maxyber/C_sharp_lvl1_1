@@ -3,11 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace MaxyClass
 {
     public class Maxyber
     {
+        // считывает информацию из файлы в строку
+        static public string FileToString(string path)
+        {
+            string res = "";
+            if (File.Exists(path))
+            {
+                res = File.ReadAllText(path);
+            }
+            else
+            {
+                Console.WriteLine(path);
+                Console.WriteLine("Файл не существует, проверьте правильность пути");
+            }
+            return res;
+        }
         // ставит консоль на ожидание нажатия клавиши
         static public void ConsolePause()
         {

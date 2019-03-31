@@ -15,23 +15,48 @@ namespace Lesson_4
         {
             // Задание №1. Дан  целочисленный  массив  из 20 элементов.  Элементы  массива  могут принимать  целые  значения  от –10 000 до 10 000 включительно. 
             // Заполнить случайными числами.  Написать программу, позволяющую найти и вывести количество пар элементов массива, в которых только одно число делится на 3. 
-            // В данной задаче под парой подразумевается два подряд идущих элемента массива. Например, для массива из пяти элементов: 6; 2; 9; –3; 6 ответ — 2. 
+            // В данной задаче под парой подразумевается два подряд идущих элемента массива. Например, для массива из пяти элементов: 6; 2; 9; –3; 6 ответ — 2.
+            /*
             Massive();
 
             // Задание №2. Реализуйте задачу 1 в виде статического класса StaticClass;
             // а) Класс должен содержать статический метод, который принимает на вход массив и решает задачу 1;
             // б) *Добавьте статический метод для считывания массива из текстового файла. Метод должен возвращать массив целых чисел;
             // в)**Добавьте обработку ситуации отсутствия файла на диске.
-            MassiveClass userMassive = new MassiveClass();
-            userMassive.Fill(20);
-            userMassive.Print();
 
+            MassiveClass userMassive = new MassiveClass();
+            userMassive.Fill(20, -10000, 10000);
+            userMassive.Print();
+            int pairs = MassiveClass.Pair(userMassive, 2);
+            MassiveClass fileMassive = new MassiveClass();
+            fileMassive = MassiveClass.ReadFile("data/arrayspec.txt");
+            fileMassive.Print();
+            */
             // Задание №3. а) Дописать класс для работы с одномерным массивом.Реализовать конструктор, создающий массив определенного размера и заполняющий массив 
             //числами от начального значения с заданным шагом.Создать свойство Sum, которое возвращает сумму элементов массива, 
             // метод Inverse, возвращающий новый массив с измененными знаками у всех элементов массива(старый массив, остается без изменений),  
             // метод Multi, умножающий каждый элемент массива на определённое число, свойство MaxCount, возвращающее количество максимальных элементов. 
             // б)**Создать библиотеку содержащую класс для работы с массивом.Продемонстрировать работу библиотеки
             // е) ***Подсчитать частоту вхождения каждого элемента в массив(коллекция Dictionary< int,int>)
+            MassiveClass newMassive = new MassiveClass();
+            newMassive.FillOrder(30, 1, 3); // заполнение массива числами в количестве 30 элементов от 1 с шагом 3
+            newMassive.Print();
+            Console.WriteLine("Сумма элементов массива: " + newMassive.Sum());
+            MassiveClass new2Massive = new MassiveClass();
+            new2Massive = newMassive.Inverse();
+            new2Massive.Print();
+            Console.WriteLine("Сумма элементов массива: " + new2Massive.Sum());
+            new2Massive.Multi(-1);
+            new2Massive.Print();
+            Console.WriteLine("Количество максимальных элементов массива new2Massive:" + new2Massive.MaxCount());
+            MassiveClass fileMassive = new MassiveClass();
+            fileMassive = MassiveClass.ReadFile("data/arrayspec.txt");
+            Console.WriteLine("Количество максимальных элементов массива fileMassive:" + fileMassive.MaxCount());
+
+
+
+
+
 
 
 
@@ -58,7 +83,7 @@ namespace Lesson_4
             int pairCount = 0;
             for (int i = 0; i < intArray.Length - 2; i++)
             {
-                if ((intArray[i] % 3 == 0) || (intArray[i + 1] % 3 == 0))
+                if (((intArray[i] % 3 == 0) || (intArray[i + 1] % 3 == 0)) && ((intArray[i] % 3) != (intArray[i+1])))
                 {
                     pairCount++;
                     Console.WriteLine("Пара чисел " + intArray[i] + " и " + intArray[i + 1] + " удовлетворяет условию.");

@@ -44,5 +44,11 @@
     <Compile Include="Lesson_4_StaticClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MaxyClass.csproj">
+      <Project>{d8e16d4d-3d7e-42fc-a2b2-95412a2042df}</Project>
+      <Name>MaxyClass</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
