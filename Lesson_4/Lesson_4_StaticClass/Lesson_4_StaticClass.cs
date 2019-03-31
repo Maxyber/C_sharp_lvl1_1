@@ -24,15 +24,15 @@ namespace Lesson_4_StaticClass
             Console.WriteLine("Вы изменили поле " + str + " на значение: " + data);
         }
 
-        public Account[] ReadFile(string path, char accSeparator = ':', char varSeparator = '|') 
-            // база логинов и паролей в файле выглядит как 
-            // account1|login1|password1:account2|login2|password2 и т.д.
+        public Account[] ReadFile(string path, char accSeparator = ':', char varSeparator = '|')
+        // база логинов и паролей в файле выглядит как 
+        // account1|login1|password1:account2|login2|password2 и т.д.
         {
             Account[] result = new Account[0];
             string str = "";
             str = Maxyber.FileToString(path);
             string[] masStr = str.Split(accSeparator);
-            Array.Resize(ref result, masStr.length);
+            Array.Resize(ref result, masStr.Length);
             for (int i = 0; i < masStr.Length; i++)
             {
                 string[] temp = masStr[i].Split(varSeparator);
@@ -65,6 +65,10 @@ namespace Lesson_4_StaticClass
             }
             else Console.WriteLine("Вы пытаетесь записать в массив число '" + number + "', что неверно");
         }
+        public int GetIndex()
+        {
+            return index;
+        }
         public int Sum()
         {
             int sum = 0;
@@ -94,13 +98,15 @@ namespace Lesson_4_StaticClass
         {
             int maxCount = 1, max;
             max = massive[0];
-            for(int i = 1; i < index; i++)
+            for (int i = 1; i < index; i++)
             {
                 if (massive[i] > max)
                 {
                     max = massive[i];
                     maxCount = 1;
-                } else if (massive[i] == max) {
+                }
+                else if (massive[i] == max)
+                {
                     maxCount++;
                 }
             }
@@ -117,16 +123,19 @@ namespace Lesson_4_StaticClass
             }
             Console.WriteLine("\nКонец массива.");
         }
-        public void Resize()
+        public void Resize(int l = 0)
         {
-            Array.Resize<int>(ref massive, 2 * massive.Length);
+            if (l == 0)
+                Array.Resize<int>(ref massive, 2 * massive.Length);
+            else
+                Array.Resize<int>(ref massive, l);
         }
         public void Fill(int length, int minValue = 1, int maxValue = 10, int step = 1) // метод заполнения массива случайными числами от minValue до maxValue в количестве length с шагом step
         {
             if (step > 1) maxValue = maxValue / step;
+            if (length > index) Resize(length);
             for (int i = 0; i < length; i++)
             {
-                if (i >= index) Resize();
                 massive[i] = rnd.Next(minValue, maxValue) * step;
                 index++;
             }
