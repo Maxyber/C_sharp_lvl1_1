@@ -16,7 +16,7 @@ namespace Lesson_4
             // Задание №1. Дан  целочисленный  массив  из 20 элементов.  Элементы  массива  могут принимать  целые  значения  от –10 000 до 10 000 включительно. 
             // Заполнить случайными числами.  Написать программу, позволяющую найти и вывести количество пар элементов массива, в которых только одно число делится на 3. 
             // В данной задаче под парой подразумевается два подряд идущих элемента массива. Например, для массива из пяти элементов: 6; 2; 9; –3; 6 ответ — 2.
-            
+            /*
             Massive();
 
             // Задание №2. Реализуйте задачу 1 в виде статического класса StaticClass;
@@ -28,9 +28,9 @@ namespace Lesson_4
             userMassive.Fill(20, -10000, 10000);
             userMassive.Print();
             int pairs = MassiveClass.Pair(userMassive, 2);
-            MassiveClass fileMassive = new MassiveClass();
-            fileMassive = MassiveClass.ReadFile("data/arrayspec.txt");
-            fileMassive.Print();
+            MassiveClass arrayFileMassive = new MassiveClass();
+            arrayFileMassive = MassiveClass.ReadFile("data/arrayspec.txt");
+            arrayFileMassive.Print();
             
             // Задание №3. а) Дописать класс для работы с одномерным массивом.Реализовать конструктор, создающий массив определенного размера и заполняющий массив 
             //числами от начального значения с заданным шагом.Создать свойство Sum, которое возвращает сумму элементов массива, 
@@ -54,14 +54,17 @@ namespace Lesson_4
             fileMassive = MassiveClass.ReadFile("data/arrayspec.txt");
             Console.WriteLine("Количество максимальных элементов массива fileMassive:" + fileMassive.MaxCount());
             
-            MassiveClass userMassive = new MassiveClass();
-            userMassive.Fill(200, 1, 10);
-            userMassive.Print();
-            Dictionary(userMassive);
-
+            MassiveClass userMassiveDict = new MassiveClass();
+            userMassiveDict.Fill(200, 1, 10);
+            userMassiveDict.Print();
+            Dictionary(userMassiveDict);
+            */
             // Задание №4. Решить задачу с логинами из урока 2, только логины и пароли считать из файла в массив.Создайте структуру Account, содержащую Login и Password.
 
-
+            Account account = new Account();
+            account.ReadFile("data/login.txt", ref account);
+            if (account.Check(account) == true) Maxyber.ConsolePrint("Пароль принят.");
+            else Maxyber.ConsolePrint("Пароль введен неверно");
 
             // Задание №5. а) Реализовать библиотеку с классом для работы с двумерным массивом.Реализовать конструктор, заполняющий массив случайными числами.
             // Создать методы, которые возвращают сумму всех элементов массива, сумму всех элементов массива больше заданного, свойство, 
@@ -69,6 +72,7 @@ namespace Lesson_4
             // максимального элемента массива(через параметры, используя модификатор ref или out).
             // **б) Добавить конструктор и методы, которые загружают данные из файла и записывают данные в файл.
             // ***в) Обработать возможные исключительные ситуации при работе с файлами.
+
 
 
             Maxyber.ConsolePause();

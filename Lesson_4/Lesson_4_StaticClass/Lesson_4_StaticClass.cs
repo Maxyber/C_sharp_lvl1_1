@@ -20,26 +20,68 @@ namespace Lesson_4_StaticClass
         }
         public void Set(string str, string data)
         {
-            str = data;
+            switch(str) {
+                case "accountName":
+                    accountName = data;
+                    break;
+                case "password":
+                    password = data;
+                    break;
+                case "login":
+                    login = data;
+                    break;
+                default:
+                    break;
+            }
             Console.WriteLine("Вы изменили поле " + str + " на значение: " + data);
         }
+        public bool Check(Account account)
+        {
+            string userAnswer = "";
+            account.Print("accountName");
+            account.Print("login");
+            Console.Write("password: ");
+            userAnswer = Console.ReadLine();
+            if (userAnswer == account.password)
+                return true;
+            else return false;
+        }
+        public void Print(string str)
+        {
+            switch (str)
+            {
+                case "accountName":
+                    Console.WriteLine($"Account: {accountName}");
+                    break;
+                case "login":
+                    Console.WriteLine($"Login: {login}");
+                    break;
+                case "password":
+                    Console.WriteLine($"Password: {password}");
+                    break;
+                default:
+                    Console.WriteLine("Неизвестная ошибка");
+                    break;
+            }
+        }
 
-        public Account[] ReadFile(string path, char accSeparator = ':', char varSeparator = '|')
+        public Account ReadFile(string path, ref Account result, char accSeparator = ':', char varSeparator = '|')
+        // ДОДЕЛАТЬ возможность записи массива Account[] из файлы по разделителю ':'
         // база логинов и паролей в файле выглядит как 
         // account1|login1|password1:account2|login2|password2 и т.д.
         {
-            Account[] result = new Account[0];
             string str = "";
             str = Maxyber.FileToString(path);
-            string[] masStr = str.Split(accSeparator);
-            Array.Resize(ref result, masStr.Length);
-            for (int i = 0; i < masStr.Length; i++)
-            {
-                string[] temp = masStr[i].Split(varSeparator);
-                result[i].Set(accountName, temp[0]);
-                result[i].Set(login, temp[1]);
-                result[i].Set(password, temp[2]);
-            }
+            // string[] masStr = str.Split(accSeparator);
+            // Array.Resize(ref result, masStr.Length);
+            // for (int i = 0; i < masStr.Length; i++)
+            // {
+            //    string[] temp = masStr[i].Split(varSeparator);
+            string[] temp = str.Split(varSeparator);
+            result.Set("accountName", temp[0]);
+            result.Set("login", temp[1]);
+            result.Set("password", temp[2]);
+            // }
             return result;
         }
     }
