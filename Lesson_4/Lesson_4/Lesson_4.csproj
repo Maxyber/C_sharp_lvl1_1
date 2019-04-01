@@ -58,6 +58,10 @@
       <Project>{d8e16d4d-3d7e-42fc-a2b2-95412a2042df}</Project>
       <Name>MaxyClass</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TwoDimensionArray\TwoDimensionArray.csproj">
+      <Project>{50609e9d-48c0-4796-a04c-74b9a285226f}</Project>
+      <Name>TwoDimensionArray</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

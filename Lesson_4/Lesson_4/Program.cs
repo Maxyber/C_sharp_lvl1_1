@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO; // для ввода-вывода информации в файлы
 using MaxyClass;
 using Lesson_4_StaticClass;
+using TwoDimensionArray;
 
 namespace Lesson_4
 {
@@ -58,14 +59,14 @@ namespace Lesson_4
             userMassiveDict.Fill(200, 1, 10);
             userMassiveDict.Print();
             Dictionary(userMassiveDict);
-            */
+            
             // Задание №4. Решить задачу с логинами из урока 2, только логины и пароли считать из файла в массив.Создайте структуру Account, содержащую Login и Password.
 
             Account account = new Account();
             account.ReadFile("data/login.txt", ref account);
             if (account.Check(account) == true) Maxyber.ConsolePrint("Пароль принят.");
             else Maxyber.ConsolePrint("Пароль введен неверно");
-
+            */
             // Задание №5. а) Реализовать библиотеку с классом для работы с двумерным массивом.Реализовать конструктор, заполняющий массив случайными числами.
             // Создать методы, которые возвращают сумму всех элементов массива, сумму всех элементов массива больше заданного, свойство, 
             // возвращающее минимальный элемент массива, свойство, возвращающее максимальный элемент массива, метод, возвращающий номер 
@@ -73,6 +74,13 @@ namespace Lesson_4
             // **б) Добавить конструктор и методы, которые загружают данные из файла и записывают данные в файл.
             // ***в) Обработать возможные исключительные ситуации при работе с файлами.
 
+            TDArray myArray = new TDArray();
+            myArray.Fill(10, 10, 1, 1000);
+            myArray.Print();
+            int sum = SumAll(myArray);
+            Console.WriteLine($"Array summ: {sum}");
+            Console.WriteLine($"MinValue: {myArray.MinValue("Value")}, MinValue coordinates: {myArray.MinValue("Coord")}");
+            Console.WriteLine($"MaxValue: {myArray.MaxValue("Value")}, MaxValue coordinates: {myArray.MaxValue("Coord")}");
 
 
             Maxyber.ConsolePause();
@@ -116,6 +124,14 @@ namespace Lesson_4
             {
                 Console.WriteLine($"Key = {kvp.Key}, Value = {kvp.Value}");
             }
+        }
+        static public int SumAll(TDArray array)
+        {
+            int sum = 0;
+            for (int x = 0; x < array.GetXDim; x++)
+                for (int y = 0; y < array.GetYDim; y++)
+                    sum = sum + array.Get(x, y);
+            return sum;
         }
     }
 }
