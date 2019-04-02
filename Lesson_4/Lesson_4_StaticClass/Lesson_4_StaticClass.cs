@@ -20,7 +20,8 @@ namespace Lesson_4_StaticClass
         }
         public void Set(string str, string data)
         {
-            switch(str) {
+            switch (str)
+            {
                 case "accountName":
                     accountName = data;
                     break;
@@ -88,7 +89,7 @@ namespace Lesson_4_StaticClass
     public class MassiveClass
     {
         int[] massive = new int[10];
-        int index;
+        int index = 0;
         Random rnd = new Random();
 
         public int Get(int i)
@@ -96,6 +97,7 @@ namespace Lesson_4_StaticClass
             int result = massive[i];
             return result;
         }
+        public int GetLength => massive.Length;
         public void Set(int i, string number)
         {
             bool flag = int.TryParse(number, out int x);
@@ -103,13 +105,17 @@ namespace Lesson_4_StaticClass
             if (flag == true)
             {
                 massive[i] = x;
-                index++;
+                index = index + 1;
             }
             else Console.WriteLine("Вы пытаетесь записать в массив число '" + number + "', что неверно");
         }
         public int GetIndex()
         {
             return index;
+        }
+        public void SetIndex(int length)
+        {
+            index = GetLength;
         }
         public int Sum()
         {
@@ -179,7 +185,7 @@ namespace Lesson_4_StaticClass
             for (int i = 0; i < length; i++)
             {
                 massive[i] = rnd.Next(minValue, maxValue) * step;
-                index++;
+                index = index + 1;
             }
         }
         public void FillOrder(int length, int minValue = 1, int step = 1)
@@ -214,7 +220,7 @@ namespace Lesson_4_StaticClass
             int x, resIndex = 0;
             str = Maxyber.FileToString(path);
             string[] strMas = str.Split(separator);
-            for (int i = 0; i < strMas.Length; i++)
+            for (int i = 1; i < strMas.Length; i++)
             {
                 do
                 {
@@ -223,12 +229,13 @@ namespace Lesson_4_StaticClass
                     {
                         result.Set(resIndex, strMas[i]);
                         resIndex++;
+                        if (resIndex >= result.GetLength) result.Resize();
                     }
                     else
                     {
                         i++;
                     }
-                } while (flag != true);
+                } while ((flag != true) && (i < strMas.Length));
             }
             return result;
         }
