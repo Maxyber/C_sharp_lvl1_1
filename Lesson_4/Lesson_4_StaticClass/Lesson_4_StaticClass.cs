@@ -13,7 +13,32 @@ namespace Lesson_4_StaticClass
         string login;
         string password;
         string accountName;
-
+        /*
+        public string this[string str, string data = ""] {
+            get
+            {
+                return str;
+            }
+            set
+            {
+                switch (str)
+                {
+                    case "accountName":
+                        accountName = data;
+                        break;
+                    case "password":
+                        password = data;
+                        break;
+                    case "login":
+                        login = data;
+                        break;
+                    default:
+                        break;
+                }
+                Console.WriteLine("Вы изменили поле " + str + " на значение: " + data);
+            }
+        }
+        */
         public string Get(string str)
         {
             return str;
@@ -36,6 +61,7 @@ namespace Lesson_4_StaticClass
             }
             Console.WriteLine("Вы изменили поле " + str + " на значение: " + data);
         }
+        
         public bool Check(Account account)
         {
             string userAnswer = "";
@@ -91,13 +117,12 @@ namespace Lesson_4_StaticClass
         int[] massive = new int[10];
         int index = 0;
         Random rnd = new Random();
-
+        
         public int Get(int i)
         {
             int result = massive[i];
             return result;
         }
-        public int GetLength => massive.Length;
         public void Set(int i, string number)
         {
             bool flag = int.TryParse(number, out int x);
@@ -109,6 +134,27 @@ namespace Lesson_4_StaticClass
             }
             else Console.WriteLine("Вы пытаетесь записать в массив число '" + number + "', что неверно");
         }
+        /*
+        public int this[int i, string number = ""]
+        {
+            get {
+                int result = massive[i];
+                return result;
+            }
+            set
+            {
+                            bool flag = int.TryParse(number, out int x);
+            if (index >= massive.Length) Resize();
+            if (flag == true)
+            {
+                massive[i] = x;
+                index = index + 1;
+            }
+            else Console.WriteLine("Вы пытаетесь записать в массив число '" + number + "', что неверно");
+            }
+        }
+*/
+        public int GetLength => massive.Length;
         public int GetIndex()
         {
             return index;

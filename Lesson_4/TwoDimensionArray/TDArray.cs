@@ -14,16 +14,28 @@ namespace TwoDimensionArray
         private int xDim = 0, yDim = 0; // индексы матрицы х и у
         string aName = ""; // имя массива, не обязательно
         Random rnd = new Random(); // случайная переменная
-
-        public void Set(int x, int y, int val = 0)
+                                   /*
+                                   public void Set(int x, int y, int val = 0)
+                                   {
+                                       array[x, y] = val;
+                                   }
+                                   public int Get(int x, int y)
+                                   {
+                                       int res;
+                                       res = array[x, y];
+                                       return res;
+                                   }
+                                   */
+        public int this[int x, int y, int val = 0]
         {
-            array[x, y] = val;
-        }
-        public int Get(int x, int y)
-        {
-            int res;
-            res = array[x, y];
-            return res;
+            get {
+                int res;
+                res = array[x, y];
+                return res;
+            }
+            set {
+                array[x, y] = val;
+            }
         }
         public int GetXDim => xDim;
         public int GetYDim => yDim;

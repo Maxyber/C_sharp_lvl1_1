@@ -100,7 +100,7 @@ namespace Lesson_4
             int sum = 0;
             for (int x = 0; x < array.GetXDim; x++)
                 for (int y = 0; y < array.GetYDim; y++)
-                    sum = sum + array.Get(x, y);
+                    sum = sum + array[x,y];
             return sum;
         }
         static public void ClassArrayDemo()
