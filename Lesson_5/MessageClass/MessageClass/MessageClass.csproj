@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{689A5F54-7267-450D-A6DA-F9D2CBA6696E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Lesson_5_HW</RootNamespace>
-    <AssemblyName>Lesson_5_HW</AssemblyName>
+    <ProjectGuid>{992CA5A4-4291-4FF7-A90C-77C07B7FFCDA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MessageClass</RootNamespace>
+    <AssemblyName>MessageClass</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,29 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="MessageClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Lesson_4_StaticClass\Lesson_4_StaticClass.csproj">
-      <Project>{a4239221-3a2b-4101-a119-2a2fa713950a}</Project>
-      <Name>Lesson_4_StaticClass</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\MaxyClass\MaxyClass.csproj">
-      <Project>{d8e16d4d-3d7e-42fc-a2b2-95412a2042df}</Project>
-      <Name>MaxyClass</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\MessageClass\MessageClass\MessageClass.csproj">
-      <Project>{992ca5a4-4291-4ff7-a90c-77c07b7ffcda}</Project>
-      <Name>MessageClass</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\TwoDimensionArray\TwoDimensionArray.csproj">
-      <Project>{50609e9d-48c0-4796-a04c-74b9a285226f}</Project>
-      <Name>TwoDimensionArray</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
