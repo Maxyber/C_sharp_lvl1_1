@@ -166,7 +166,8 @@ namespace Lesson_5_HW
         static public void StudentListAnalyse()
         {
             string path = "data/students.txt";
-            int count = int.Parse(File.ReadAllLines(path)[0]); // получаем количество учащихся для использования в качестве размерности массива
+            string temp = Maxyber.FileToString(path);
+            int count = int.Parse(temp.Split('\n')[0]);
             Students[] studentList = new Students[count];
             for (int i = 0; i < studentList.Length; i++) studentList[i] = new Students();
             studentList = Students.ReadScoreFile(path);
@@ -196,6 +197,8 @@ namespace Lesson_5_HW
                     middle3 = middles[i];
             }
             Console.WriteLine($"Минимальные средние баллы: {middle1:f3}, {middle2:f3}, {middle3:f3}");
+            Console.WriteLine("");
+            Console.WriteLine("Ученики, хуже всего написавшие ЕГЭ");
             StringBuilder result = new StringBuilder(); // создаем строку для вывода студентов с самыми плохими баллами
             int position = 0;
             for (int i = 0; i < studentList.Length; i++)
@@ -249,7 +252,7 @@ namespace Lesson_5_HW
                 }
                 else
                 {
-                    dict.Add(str[i], 0);
+                    dict.Add(str[i], 1);
                 }
             }
             return dict;
