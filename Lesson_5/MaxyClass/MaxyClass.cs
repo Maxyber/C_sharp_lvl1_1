@@ -15,7 +15,7 @@ namespace MaxyClass
             string res = "";
             if (File.Exists(path))
             {
-                res = File.ReadAllText(path);
+                res = File.ReadAllText(path, Encoding.UTF8);
             }
             else
             {
@@ -37,7 +37,7 @@ namespace MaxyClass
             Console.WriteLine("Для продолжения нажмите любую клавишу...");
             Console.ReadKey();
         }
-        static public int AskInteger()
+        static public int Ask(int integer)
         {
             int result;
             string str;
@@ -46,6 +46,18 @@ namespace MaxyClass
             {
                 str = Console.ReadLine();
                 flag = int.TryParse(str, out result);
+            } while (flag != true);
+            return result;
+        }
+        static public char Ask(char ch)
+        {
+            char result;
+            string str;
+            bool flag;
+            do
+            {
+                str = Console.ReadLine();
+                flag = char.TryParse(str, out result);
             } while (flag != true);
             return result;
         }
@@ -100,7 +112,7 @@ namespace MaxyClass
             int i = 0, x;
             do
             {
-                x = AskInteger();
+                x = Ask(0);
                 Console.Write("Число " + x + " принято. Следующее число: ");
                 if (x != 0)
                 {
