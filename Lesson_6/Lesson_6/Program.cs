@@ -6,9 +6,37 @@ using System.Text;
 using System.Threading.Tasks;
 using MaxyClass;
 using System.IO;
+using System.Diagnostics;
 
 namespace Lesson_6
 {
+    /*
+     * 
+     * Бухтияров Максим 
+     * 
+     *      //Задание №1
+     *      //Изменить программу вывода таблицы функции так, чтобы можно было передавать функции типа double(double, double).
+     *      //Продемонстрировать работу на функции с функцией (a*x) ^ 2 и функцией a* sin(x).
+     *      // Описываем делегат. В делегате описывается сигнатура методов, на которые он сможет ссылаться в дальнейшем (хранить в себе)
+     *
+     *
+     *      //Задание №2
+     *      //Модифицировать программу нахождения минимума функции так, чтобы можно было передавать функцию в виде делегата.
+     *      //а) Сделать меню с различными функциями и представить пользователю выбор, для какой функции и на каком отрезке находить минимум.
+     *      //Использовать массив(или список) делегатов, в котором хранятся различные функции.
+     *      //б) *Переделать функцию Load, чтобы она возвращала массив считанных значений.Пусть она возвращает минимум через параметр(с использованием модификатора out). 
+     * 
+     *      //Задание №3
+     *      //Переделать программу Пример использования коллекций для решения следующих задач:
+     *      //а) Подсчитать количество студентов учащихся на 5 и 6 курсах;
+     *      //б) подсчитать сколько студентов в возрасте от 18 до 20 лет на каком курсе учатся(*частотный массив);
+     *      //в) отсортировать список по возрасту студента;
+     *      //г) *отсортировать список по курсу и возрасту студента;
+     *
+     *      //Задание №4
+     *      //**Считайте файл различными способами.Смотрите “Пример записи файла различными способами”. 
+     *      //Создайте методы, которые возвращают массив byte(FileStream, BufferedStream), строку для StreamReader и массив int для BinaryReader.
+     */
     class Program
     {
         public delegate double Fun(double x, double y);
@@ -16,43 +44,192 @@ namespace Lesson_6
         static void Main(string[] args)
         {
             //Задание №1
-            //Изменить программу вывода таблицы функции так, чтобы можно было передавать функции типа double(double, double).
-            //Продемонстрировать работу на функции с функцией (a*x) ^ 2 и функцией a* sin(x).
-            // Описываем делегат. В делегате описывается сигнатура методов, на которые он сможет ссылаться в дальнейшем (хранить в себе)
-            /*
+
             Fun function = AskFunctionType();
-            int[] vars = AskVars();
+            double[] vars = AskVars();
             ConstructTable(function, vars);
-            
+
             //Задание №2
-            //Модифицировать программу нахождения минимума функции так, чтобы можно было передавать функцию в виде делегата.
-            //а) Сделать меню с различными функциями и представить пользователю выбор, для какой функции и на каком отрезке находить минимум.
-            //Использовать массив(или список) делегатов, в котором хранятся различные функции.
-            //б) *Переделать функцию Load, чтобы она возвращала массив считанных значений.Пусть она возвращает минимум через параметр(с использованием модификатора out). 
 
             Fun[] funcArray = NewFuncArray();
             FunctionConstruct(funcArray);
-            
+
             //Задание №3
-            //Переделать программу Пример использования коллекций для решения следующих задач:
-            //а) Подсчитать количество студентов учащихся на 5 и 6 курсах;
-            //б) подсчитать сколько студентов в возрасте от 18 до 20 лет на каком курсе учатся(*частотный массив);
-            //в) отсортировать список по возрасту студента;
-            //г) *отсортировать список по курсу и возрасту студента;
 
             List<string[]> list = new List<string[]>();
             StudentsListCreate(ref list);
-            StudentsListSort(ref list,5); // сортировка коллекции по возрастанию по указанному столбцу, применяется сравнение <>, столбец 5 - возраст
+            StudentsListSort(ref list, 5); // сортировка коллекции по возрастанию по указанному столбцу, применяется сравнение <>, столбец 5 - возраст
             StudentsListSort(ref list, 6); // сортировка коллекции по возрастанию по указанному столбцу, применяется сравнение <>, столбец 6 - курс
             Dictionary<string, int> freqDict = new Dictionary<string, int>();
             StudentsDictionaryPrint(ref freqDict, list);
-            */
+
+            #region Задание 4, не доделано
+            /*
             //Задание №4
             //**Считайте файл различными способами.Смотрите “Пример записи файла различными способами”. 
             //Создайте методы, которые возвращают массив byte(FileStream, BufferedStream), строку для StreamReader и массив int для BinaryReader.
 
-            Maxyber.ConsolePause();
+            long kbyte = 1024;
+            long mbyte = 1024 * kbyte;
+            long gbyte = 1024 * mbyte;
+            long size = mbyte;
+            //Write FileStream
+            //Write BinaryStream
+            //Write StreamReader/StreamWriter
+            //Write BufferedStream
+
+            string fsPath = "data/bigdata_FileStream.bin";
+            string bisPath = "data/bigdata_BinaryStream.bin";
+            string swrPath = "data/bigdata_StreamWriter.bin";
+            string busPath = "data/bigdata_BufferedStream.bin";
+            int[] bigdata = BigDataCreate();
+
+            Console.WriteLine("FileStream. Milliseconds:{0}", FileStreamSample(fsPath, bigdata));
+            Console.WriteLine("BinaryStream. Milliseconds:{0}", BinaryStreamSample(bisPath, bigdata));
+            Console.WriteLine("StreamWriter. Milliseconds:{0}", StreamWriterSample(swrPath, bigdata));
+            Console.WriteLine("BufferedStream. Milliseconds:{0}", BufferedStreamSample(busPath, bigdata));
+
+            PrintMessage("Выберите метод считывания файла в массив: \n1. FileStream,\n2. BinaryStream,\n3. StrimReader,\n4. BufferedStream");
+            int answer = Maxyber.Ask(0);
+            int[] bigdataLoaded;
+            long time = 0;
+            switch (answer)
+            {
+                case 1:
+                    bigdataLoaded = fsBigdataLoad(fsPath, out time);
+                    break;
+                case 2:
+                    bigdataLoaded = bisBigdataLoad(fsPath, out time);
+                    break;
+                case 3:
+                    bigdataLoaded = swrBigdataLoad(fsPath, out time);
+                    break;
+                case 4:
+                    bigdataLoaded = busBigdataLoad(fsPath, out time);
+                    break;
+                default:
+                    PrintMessage("Неверный выбор метода чтения массива из файла");
+                    time = 0;
+                    bigdataLoaded = fsBigdataLoad(fsPath, out time);
+                    break;
+            }
+
+            PrintMessage($"Файл успешно считан в массив bigdataLoaded за {time} милисекунд");
+
+            // выводим первые 100 элементов загруженного из файла массива bigdataLoaded
+            StringBuilder stringSB = new StringBuilder();
+            for (int i = 0; i < 100; i++) {
+                do
+                {
+                    stringSB.Append(bigdataLoaded[i] + " ");
+                    i++;
+                } while (i % 10 != 0);
+                PrintMessage(stringSB.ToString());
+                stringSB.Clear();
+            }
+            */
+            #endregion
+
+            Pause();
         }
+
+        #region Методы для задания 4, не доделано
+        // создаем большой массив данных для файла
+        /*
+        public static int[] BigDataCreate()
+        {
+            int[] bigdata = Maxyber.RandArray(1000, 9999, 1024 * 1024 * 8);
+            return bigdata;
+        }
+        static long FileStreamSample(string filename, int[] bigdata)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write);
+            //FileStream fs = new FileStream("D:\\temp\\bigdata.bin", FileMode.CreateNew, FileAccess.Write);
+            for (int i = 0; i < bigdata.Length; i++)
+                fs.WriteByte((byte)bigdata[i]);
+            fs.Close();
+            stopwatch.Stop();
+            return stopwatch.ElapsedMilliseconds;
+        }
+        static int[] fsBigdataLoad(string filename, out long time)
+        {
+            int[] bigdata;
+            Stopwatch timeCalc = new Stopwatch();
+            timeCalc.Start();
+            FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read);
+            bigdata = new int[fs.Length];
+            //FileStream fs = new FileStream("D:\\temp\\bigdata.bin", FileMode.CreateNew, FileAccess.Write);
+            for (int i = 0; i < bigdata.Length; i++)
+                bigdata[i] = fs.ReadByte();
+            fs.Close();
+            timeCalc.Stop();
+            time = timeCalc.ElapsedMilliseconds;
+            return bigdata;
+        }
+        static long BinaryStreamSample(string filename, int[] bigdata)
+        {
+            Stopwatch timeCalc = new Stopwatch();
+            timeCalc.Start();
+            FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write);
+            BinaryWriter bw = new BinaryWriter(fs);
+            for (int i = 0; i < bigdata.Length; i++)
+                bw.Write((byte)bigdata[i]);
+            fs.Close();
+            timeCalc.Stop();
+            return timeCalc.ElapsedMilliseconds;
+        }
+        
+        static int[] bisBigdataLoad(string filename, out long time)
+        {
+            int[] bigdata;
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read);
+            bigdata = new int[fs.Length];
+            BinaryReader bw = new BinaryReader(fs);
+
+            for (int i = 0; i < bigdata.Length; i++)
+                bigdata[i] = bw.ReadInt32();
+            fs.Close();
+            stopwatch.Stop();
+            time = stopwatch.ElapsedMilliseconds;
+            return bigdata;
+        }
+        
+        static long StreamWriterSample(string filename, int[] bigdata)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs);
+            for (int i = 0; i < bigdata.Length; i++)
+                sw.Write(bigdata[i]);
+            fs.Close();
+            stopwatch.Stop();
+            return stopwatch.ElapsedMilliseconds;
+        }
+        /*
+        static long BufferedStreamSample(string filename, int[] bigdata)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write);
+            int countPart = 4;//количество частей
+            int bufsize = (int)(bigdata.Length / countPart);
+            byte[] buffer = new byte[bigdata.Length];
+            BufferedStream bs = new BufferedStream(fs, bufsize);
+            //bs.Write(buffer, 0, (int)size);//Error!
+            for (int i = 0; i < countPart; i++)
+                bs.Write(buffer, 0, (int)bufsize);
+            fs.Close();
+            stopwatch.Stop();
+            return stopwatch.ElapsedMilliseconds;
+        }
+        */
+        #endregion
+
         // ЛОГИКА
         // Создаем метод для передачи его в качестве параметра в Table
         public static double MyFuncPow(double x, double y)
@@ -68,26 +245,26 @@ namespace Lesson_6
             return Math.Sqrt(x) + Math.Sqrt(y);
         }
         // Метод построения таблицы с использованием значений из массива переменных
-        public static void ConstructTable(Fun F, int[] vars)
+        public static void ConstructTable(Fun F, double[] vars)
         {
             PrintMessage($"Таблица выбранной вами функции f(x[{vars[0]},{vars[1]}],{vars[2]}):");
             Table(F, vars[0], vars[1], vars[2]);
         }
         // запрашиваем у пользователя три значения для построения функции и записываем в массив переменных
-        public static int[] AskVars()
+        public static double[] AskVars()
         {
-            int[] funcVars = new int[3];
+            double[] funcVars = new double[3];
             do
             {
-                PrintMessage("Введите две три переменных x (принимает значения от 1.а до 2.b {a < b}) и 3.y для построения таблицы функции вида f(x[a,b],y)");
-                for (int i = 0; i < 3; i++) funcVars[i] = Maxyber.Ask(0);
+                PrintMessage("Введите три переменных типа double (значения от а до b (a < b) и у для построения таблицы функции вида f(x[a,b],y)");
+                for (int i = 0; i < 3; i++) funcVars[i] = Maxyber.Ask(0.0);
             } while (funcVars[1] < funcVars[0]);
             return funcVars;
         }
         // запрашиваем у пользователя выбор одной из нескольких функций
         public static Fun AskFunctionType()
         {
-            PrintMessage("Выберите (1 или 2) тип функции для вывода таблицы:\n1. (x*y)^2, \n2. Sqrt(x) + Sqrt(y), \n3.x * Sin(y)");
+            PrintMessage("Выберите (1, 2 или 3) тип функции для вывода таблицы:\n1. (x*y)^2, \n2. Sqrt(x) + Sqrt(y), \n3.x * Sin(y)");
             string answer = AskAnswer();
             switch (answer)
             {
@@ -158,11 +335,13 @@ namespace Lesson_6
             if (funcArray.Length > i - 1)
             {
                 Table(funcArray[i - 1], a, b, y);
-                PrintMessage($"Минимум функции на интервале от {a} до {b} составляет: {min}");
+                PrintMessage($"Минимум функции на интервале от {a} до {b}, полученный через метод расчета минимума составляет: {min}");
                 Save("data/data.bin", funcArray[i - 1], a, b, y);
-                double[][] aray = Load("data/data.bin");
+                double[][] aray = Load("data/data.bin", out double minimum);
+                PrintMessage($"Минимум функции на интервале от {a} до {b}, полученный через метод Load с парметром out составляет: {minimum}");
             }
             else PrintMessage("Неведомая ошибка");
+            Pause();
         }
         // записываем результат работы функции в бинарный файл
         static void Save(string fileName, Fun F, double a, double b, double y)
@@ -179,16 +358,21 @@ namespace Lesson_6
             bw.Close();
         }
         // загружаем результат работы функции из бинарного файла в массив
-        static double[][] Load(string fileName)
+        static double[][] Load(string fileName, out double minimum)
         {
             FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             BinaryReader br = new BinaryReader(fs);
             double[][] result = new double[fs.Length / 16][]; // double занимает 8 байт, но в файле одному элементу соответствует два числа double
             for (int i = 0; i < result.Length; i++) result[i] = new double[2];
-            for (int i = 0; i < result.Length; i++)
+            result[0][0] = br.ReadDouble();
+            result[0][1] = br.ReadDouble();
+            PrintMessage($"{result[0][0],6:0.000} {result[0][1]:0.000}");
+            minimum = result[0][1];
+            for (int i = 1; i < result.Length; i++)
             {
                 result[i][0] = br.ReadDouble();
                 result[i][1] = br.ReadDouble();
+                if (minimum > result[i][1]) minimum = result[i][1];
                 PrintMessage($"{result[i][0],6:0.000} {result[i][1]:0.000}");
             }
             br.Close();
@@ -200,9 +384,6 @@ namespace Lesson_6
             int sixYearStudents = 0;
             int fiveYearStudents = 0;
             StringBuilder sb = new StringBuilder();
-            // Создадим необобщенный список
-
-            // Запомним время в начале обработки данных
             StreamReader sr = new StreamReader("data/students.csv", Encoding.UTF8);
             while (!sr.EndOfStream)
             {
@@ -229,6 +410,7 @@ namespace Lesson_6
             PrintMessage($"4 курс: {fiveYearStudents}");
             PrintMessage($"5 курс: {sixYearStudents}");
         }
+        // сортировка списка List по элементу col массива строк
         static public void StudentsListSort(ref List<string[]> list, int col)
         {
             string[] svar = new string[list[0].Length];
@@ -247,6 +429,7 @@ namespace Lesson_6
                 }
             }
         }
+        // составляем и выводим на экран частотный массив студентов, на основе словаря
         static public void StudentsDictionaryPrint(ref Dictionary<string, int> freqDict, List<string[]> list)
         {
             //Создаем частотный массив состоящий из таблицы 3 * х, где х - количество доступных комбинаций возраст + курс
@@ -271,12 +454,15 @@ namespace Lesson_6
             }
             PrintMessage(sb.ToString());
         }
-
         // ИНТЕРФЕЙС
         public static string AskAnswer()
         {
             string answer = Console.ReadLine();
             return answer;
+        }
+        public static void Pause()
+        {
+            Maxyber.ConsolePause();
         }
         public static void PrintMessage(string msg)
         {
