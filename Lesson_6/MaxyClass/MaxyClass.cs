@@ -49,6 +49,18 @@ namespace MaxyClass
             } while (flag != true);
             return result;
         }
+        static public double Ask(double doub)
+        {
+            double result;
+            string str;
+            bool flag;
+            do
+            {
+                str = Console.ReadLine();
+                flag = double.TryParse(str, out result);
+            } while (flag != true);
+            return result;
+        }
         static public char Ask(char ch)
         {
             char result;
