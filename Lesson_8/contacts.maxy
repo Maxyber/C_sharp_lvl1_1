@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ArrayOfBirthdays xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Birthdays>
+    <Family>Фамилия</Family>
+    <Name>Имя</Name>
+    <Surname>Отчество</Surname>
+    <Date>2019-04-14T14:10:01.6325836+03:00</Date>
+    <Address>000000, Областная область, г. Город, район Район, улица Улица, д. Дом, стр. Корп. кв. Кв.</Address>
+    <Email>email@domain</Email>
+    <Phone>+8(888)888-88-88</Phone>
+  </Birthdays>
+</ArrayOfBirthdays>
