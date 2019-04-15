@@ -63,6 +63,7 @@ namespace frmTask4
             database.Save();
             Print(database);
         }
+        object
 
         private void btnEditRecord_Click(object sender, EventArgs e) // обработчик кнопки сохранить запись
         {
