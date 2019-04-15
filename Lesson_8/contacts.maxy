@@ -4,9 +4,27 @@
     <Family>Фамилия</Family>
     <Name>Имя</Name>
     <Surname>Отчество</Surname>
-    <Date>2019-04-14T14:10:01.6325836+03:00</Date>
+    <Date>2019-04-15T16:01:48.3201654+03:00</Date>
     <Address>000000, Областная область, г. Город, район Район, улица Улица, д. Дом, стр. Корп. кв. Кв.</Address>
     <Email>email@domain</Email>
     <Phone>+8(888)888-88-88</Phone>
+  </Birthdays>
+  <Birthdays>
+    <Family>Фамилия</Family>
+    <Name>Имя</Name>
+    <Surname>Отчество</Surname>
+    <Date>2019-04-15T00:00:00</Date>
+    <Address>143988,Московская,Железнодорожный,мкр. Павлино,Поднебесная,888,888,888</Address>
+    <Email>@</Email>
+    <Phone>()--</Phone>
+  </Birthdays>
+  <Birthdays>
+    <Family>My</Family>
+    <Name>Name</Name>
+    <Surname />
+    <Date>1990-01-01T00:00:00</Date>
+    <Address>909090,Рязанская,Рыбинск,,Широкая,5,,</Address>
+    <Email>1@1.рф</Email>
+    <Phone>7(905)333-33-33</Phone>
   </Birthdays>
 </ArrayOfBirthdays>

@@ -76,6 +76,7 @@
             this.btnDeleteRecord = new System.Windows.Forms.Button();
             this.btnEditRecord = new System.Windows.Forms.Button();
             this.btnOpenBase = new System.Windows.Forms.Button();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbBirthdays
@@ -172,21 +173,21 @@
             this.tbEmailName.Location = new System.Drawing.Point(315, 210);
             this.tbEmailName.Name = "tbEmailName";
             this.tbEmailName.Size = new System.Drawing.Size(100, 20);
-            this.tbEmailName.TabIndex = 9;
+            this.tbEmailName.TabIndex = 27;
             // 
             // tbPhoneCoutry
             // 
             this.tbPhoneCoutry.Location = new System.Drawing.Point(315, 185);
             this.tbPhoneCoutry.Name = "tbPhoneCoutry";
             this.tbPhoneCoutry.Size = new System.Drawing.Size(15, 20);
-            this.tbPhoneCoutry.TabIndex = 10;
+            this.tbPhoneCoutry.TabIndex = 22;
             // 
             // tbAddressIndex
             // 
             this.tbAddressIndex.Location = new System.Drawing.Point(360, 110);
             this.tbAddressIndex.Name = "tbAddressIndex";
             this.tbAddressIndex.Size = new System.Drawing.Size(50, 20);
-            this.tbAddressIndex.TabIndex = 11;
+            this.tbAddressIndex.TabIndex = 14;
             this.tbAddressIndex.Text = "143988";
             this.tbAddressIndex.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -196,7 +197,7 @@
             this.tbDateDay.Location = new System.Drawing.Point(360, 85);
             this.tbDateDay.Name = "tbDateDay";
             this.tbDateDay.Size = new System.Drawing.Size(30, 20);
-            this.tbDateDay.TabIndex = 12;
+            this.tbDateDay.TabIndex = 11;
             this.tbDateDay.Text = "88";
             this.tbDateDay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -205,7 +206,7 @@
             this.tbSurname.Location = new System.Drawing.Point(360, 60);
             this.tbSurname.Name = "tbSurname";
             this.tbSurname.Size = new System.Drawing.Size(100, 20);
-            this.tbSurname.TabIndex = 13;
+            this.tbSurname.TabIndex = 10;
             this.tbSurname.Text = "Отчество";
             this.tbSurname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -214,7 +215,7 @@
             this.tbName.Location = new System.Drawing.Point(360, 35);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(100, 20);
-            this.tbName.TabIndex = 14;
+            this.tbName.TabIndex = 9;
             this.tbName.Text = "Имя";
             this.tbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -224,7 +225,7 @@
             this.tbDateMonth.Location = new System.Drawing.Point(405, 85);
             this.tbDateMonth.Name = "tbDateMonth";
             this.tbDateMonth.Size = new System.Drawing.Size(30, 20);
-            this.tbDateMonth.TabIndex = 15;
+            this.tbDateMonth.TabIndex = 12;
             this.tbDateMonth.Text = "88";
             this.tbDateMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -234,7 +235,7 @@
             this.tbDateYear.Location = new System.Drawing.Point(450, 85);
             this.tbDateYear.Name = "tbDateYear";
             this.tbDateYear.Size = new System.Drawing.Size(60, 20);
-            this.tbDateYear.TabIndex = 16;
+            this.tbDateYear.TabIndex = 13;
             this.tbDateYear.Text = "8888";
             this.tbDateYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -243,35 +244,35 @@
             this.tbPhoneRegion.Location = new System.Drawing.Point(350, 185);
             this.tbPhoneRegion.Name = "tbPhoneRegion";
             this.tbPhoneRegion.Size = new System.Drawing.Size(30, 20);
-            this.tbPhoneRegion.TabIndex = 17;
+            this.tbPhoneRegion.TabIndex = 23;
             // 
             // tbPhone1
             // 
             this.tbPhone1.Location = new System.Drawing.Point(400, 185);
             this.tbPhone1.Name = "tbPhone1";
             this.tbPhone1.Size = new System.Drawing.Size(30, 20);
-            this.tbPhone1.TabIndex = 18;
+            this.tbPhone1.TabIndex = 24;
             // 
             // tbPhone2
             // 
             this.tbPhone2.Location = new System.Drawing.Point(450, 185);
             this.tbPhone2.Name = "tbPhone2";
             this.tbPhone2.Size = new System.Drawing.Size(30, 20);
-            this.tbPhone2.TabIndex = 19;
+            this.tbPhone2.TabIndex = 25;
             // 
             // tbPhone3
             // 
             this.tbPhone3.Location = new System.Drawing.Point(500, 185);
             this.tbPhone3.Name = "tbPhone3";
             this.tbPhone3.Size = new System.Drawing.Size(30, 20);
-            this.tbPhone3.TabIndex = 20;
+            this.tbPhone3.TabIndex = 26;
             // 
             // tbEmailDomain
             // 
             this.tbEmailDomain.Location = new System.Drawing.Point(445, 210);
             this.tbEmailDomain.Name = "tbEmailDomain";
             this.tbEmailDomain.Size = new System.Drawing.Size(100, 20);
-            this.tbEmailDomain.TabIndex = 21;
+            this.tbEmailDomain.TabIndex = 28;
             // 
             // lblDog
             // 
@@ -341,7 +342,7 @@
             this.tbAddressRegion.Location = new System.Drawing.Point(416, 110);
             this.tbAddressRegion.Name = "tbAddressRegion";
             this.tbAddressRegion.Size = new System.Drawing.Size(120, 20);
-            this.tbAddressRegion.TabIndex = 29;
+            this.tbAddressRegion.TabIndex = 15;
             this.tbAddressRegion.Text = "Московская";
             this.tbAddressRegion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -350,7 +351,7 @@
             this.tbAddressCity.Location = new System.Drawing.Point(297, 135);
             this.tbAddressCity.Name = "tbAddressCity";
             this.tbAddressCity.Size = new System.Drawing.Size(120, 20);
-            this.tbAddressCity.TabIndex = 30;
+            this.tbAddressCity.TabIndex = 16;
             this.tbAddressCity.Text = "Железнодорожный";
             this.tbAddressCity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -359,7 +360,7 @@
             this.tbAddressHome.Location = new System.Drawing.Point(460, 160);
             this.tbAddressHome.Name = "tbAddressHome";
             this.tbAddressHome.Size = new System.Drawing.Size(30, 20);
-            this.tbAddressHome.TabIndex = 31;
+            this.tbAddressHome.TabIndex = 19;
             this.tbAddressHome.Text = "888";
             this.tbAddressHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -368,7 +369,7 @@
             this.tbAddressStreet.Location = new System.Drawing.Point(297, 160);
             this.tbAddressStreet.Name = "tbAddressStreet";
             this.tbAddressStreet.Size = new System.Drawing.Size(120, 20);
-            this.tbAddressStreet.TabIndex = 32;
+            this.tbAddressStreet.TabIndex = 18;
             this.tbAddressStreet.Text = "Поднебесная";
             this.tbAddressStreet.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -377,7 +378,7 @@
             this.tbAddressDistrict.Location = new System.Drawing.Point(460, 135);
             this.tbAddressDistrict.Name = "tbAddressDistrict";
             this.tbAddressDistrict.Size = new System.Drawing.Size(120, 20);
-            this.tbAddressDistrict.TabIndex = 33;
+            this.tbAddressDistrict.TabIndex = 17;
             this.tbAddressDistrict.Text = "мкр. Павлино";
             this.tbAddressDistrict.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -386,7 +387,7 @@
             this.tbAddressBuilding.Location = new System.Drawing.Point(525, 160);
             this.tbAddressBuilding.Name = "tbAddressBuilding";
             this.tbAddressBuilding.Size = new System.Drawing.Size(30, 20);
-            this.tbAddressBuilding.TabIndex = 34;
+            this.tbAddressBuilding.TabIndex = 20;
             this.tbAddressBuilding.Text = "888";
             this.tbAddressBuilding.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -395,7 +396,7 @@
             this.tbAddressFlat.Location = new System.Drawing.Point(585, 160);
             this.tbAddressFlat.Name = "tbAddressFlat";
             this.tbAddressFlat.Size = new System.Drawing.Size(30, 20);
-            this.tbAddressFlat.TabIndex = 35;
+            this.tbAddressFlat.TabIndex = 21;
             this.tbAddressFlat.Text = "888";
             this.tbAddressFlat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -512,11 +513,20 @@
             this.btnOpenBase.UseVisualStyleBackColor = true;
             this.btnOpenBase.Click += new System.EventHandler(this.btnOpenBase_Click);
             // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(13, 235);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(0, 13);
+            this.lblInfo.TabIndex = 48;
+            // 
             // Task4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(949, 288);
+            this.ClientSize = new System.Drawing.Size(951, 260);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.btnOpenBase);
             this.Controls.Add(this.btnEditRecord);
             this.Controls.Add(this.btnDeleteRecord);
@@ -622,6 +632,7 @@
         private System.Windows.Forms.Button btnDeleteRecord;
         private System.Windows.Forms.Button btnEditRecord;
         private System.Windows.Forms.Button btnOpenBase;
+        private System.Windows.Forms.Label lblInfo;
     }
 }
 

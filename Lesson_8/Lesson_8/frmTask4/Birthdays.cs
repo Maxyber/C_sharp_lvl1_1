@@ -84,9 +84,15 @@ namespace frmTask4
             this.fileName = fileName;
             list = new List<Birthdays>();
         }
-        public void Add(string family, string name, string surname, DateTime date, string address, string email, string phone)
+        public string Add(string family, string name, string surname, DateTime date, string address, string email, string phone)
         {
             list.Add(new Birthdays(family, name, surname, date, address, email, phone));
+            return "Операция завершена";
+        }
+        public string Insert(int index, string family, string name, string surname, DateTime date, string address, string email, string phone)
+        {
+            list.Insert(index, new Birthdays(family, name, surname, date, address, email, phone));
+            return "Операция завершена";
         }
         public void Remove(int index)
         {

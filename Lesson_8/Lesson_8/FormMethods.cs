@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using frmTask1;
 using frmTask2;
 using frmTask3;
+using frmTask4;
+using frmTask5;
 
 namespace Lesson_8
 {
     class FormMethods
     {
-        frmBasic myForm;
+        // frmBasic myForm;
 
         public FormMethods(frmBasic frm) // инициализации класса методов формы
         {
@@ -67,11 +69,13 @@ namespace Lesson_8
         }
         public void FrmTask4Start()
         {
-
+            Task4 frm = new Task4();
+            frm.Show();
         }
         public void FrmTask5Start()
         {
-
+            Task5 frm = new Task5();
+            frm.Show();
         }
     }
 }

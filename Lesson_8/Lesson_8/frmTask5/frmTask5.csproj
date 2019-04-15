@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AAE10B04-0B98-4E07-B715-F91EE7701D9B}</ProjectGuid>
+    <ProjectGuid>{89409E29-173B-4630-ABBA-0D2666070190}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Lesson_8</RootNamespace>
-    <AssemblyName>Lesson_8</AssemblyName>
+    <RootNamespace>frmTask5</RootNamespace>
+    <AssemblyName>frmTask5</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,19 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainMenu.cs">
+    <Compile Include="Students.cs" />
+    <Compile Include="Task5.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenu.Designer.cs">
-      <DependentUpon>MainMenu.cs</DependentUpon>
+    <Compile Include="Task5.Designer.cs">
+      <DependentUpon>Task5.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMethods.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reflection.cs" />
-    <EmbeddedResource Include="MainMenu.resx">
-      <DependentUpon>MainMenu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -68,6 +64,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Task5.resx">
+      <DependentUpon>Task5.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -80,28 +79,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="frmTask1\frmTask1.csproj">
-      <Project>{c103c561-4edd-48d8-9731-ae6ef1789861}</Project>
-      <Name>frmTask1</Name>
-    </ProjectReference>
-    <ProjectReference Include="frmTask2\frmTask2.csproj">
-      <Project>{6ed87255-862a-4632-9c1c-3d84b1c4e260}</Project>
-      <Name>frmTask2</Name>
-    </ProjectReference>
-    <ProjectReference Include="frmTask3\frmTask3.csproj">
-      <Project>{fb287032-417f-4033-adcd-d53a666c433e}</Project>
-      <Name>frmTask3</Name>
-    </ProjectReference>
-    <ProjectReference Include="frmTask4\frmTask4.csproj">
-      <Project>{ea213fa7-5a52-4c41-b7e4-70d63d701555}</Project>
-      <Name>frmTask4</Name>
-    </ProjectReference>
-    <ProjectReference Include="frmTask5\frmTask5.csproj">
-      <Project>{89409e29-173b-4630-abba-0d2666070190}</Project>
-      <Name>frmTask5</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

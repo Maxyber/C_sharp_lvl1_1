@@ -44,10 +44,11 @@
             // lblTask1
             // 
             this.lblTask1.AutoSize = true;
-            this.lblTask1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTask1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblTask1.Location = new System.Drawing.Point(13, 13);
+            this.lblTask1.MaximumSize = new System.Drawing.Size(580, 0);
             this.lblTask1.Name = "lblTask1";
-            this.lblTask1.Size = new System.Drawing.Size(161, 17);
+            this.lblTask1.Size = new System.Drawing.Size(126, 13);
             this.lblTask1.TabIndex = 0;
             this.lblTask1.Text = "Информация о классах";
             // 
@@ -55,7 +56,7 @@
             // 
             this.btnStart.Location = new System.Drawing.Point(713, 13);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.Size = new System.Drawing.Size(75, 454);
             this.btnStart.TabIndex = 1;
             this.btnStart.Text = "start";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -64,7 +65,7 @@
             // rbTask1
             // 
             this.rbTask1.AutoSize = true;
-            this.rbTask1.Location = new System.Drawing.Point(313, 13);
+            this.rbTask1.Location = new System.Drawing.Point(610, 13);
             this.rbTask1.Name = "rbTask1";
             this.rbTask1.Size = new System.Drawing.Size(88, 17);
             this.rbTask1.TabIndex = 2;
@@ -75,7 +76,7 @@
             // rbTask2
             // 
             this.rbTask2.AutoSize = true;
-            this.rbTask2.Location = new System.Drawing.Point(313, 51);
+            this.rbTask2.Location = new System.Drawing.Point(610, 100);
             this.rbTask2.Name = "rbTask2";
             this.rbTask2.Size = new System.Drawing.Size(88, 17);
             this.rbTask2.TabIndex = 3;
@@ -86,7 +87,7 @@
             // rbTask3
             // 
             this.rbTask3.AutoSize = true;
-            this.rbTask3.Location = new System.Drawing.Point(313, 87);
+            this.rbTask3.Location = new System.Drawing.Point(610, 200);
             this.rbTask3.Name = "rbTask3";
             this.rbTask3.Size = new System.Drawing.Size(88, 17);
             this.rbTask3.TabIndex = 4;
@@ -97,7 +98,7 @@
             // rbTask4
             // 
             this.rbTask4.AutoSize = true;
-            this.rbTask4.Location = new System.Drawing.Point(313, 125);
+            this.rbTask4.Location = new System.Drawing.Point(610, 350);
             this.rbTask4.Name = "rbTask4";
             this.rbTask4.Size = new System.Drawing.Size(88, 17);
             this.rbTask4.TabIndex = 5;
@@ -108,7 +109,7 @@
             // rbTask5
             // 
             this.rbTask5.AutoSize = true;
-            this.rbTask5.Location = new System.Drawing.Point(313, 165);
+            this.rbTask5.Location = new System.Drawing.Point(610, 450);
             this.rbTask5.Name = "rbTask5";
             this.rbTask5.Size = new System.Drawing.Size(88, 17);
             this.rbTask5.TabIndex = 6;
@@ -119,40 +120,44 @@
             // lblTask5
             // 
             this.lblTask5.AutoSize = true;
-            this.lblTask5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTask5.Location = new System.Drawing.Point(12, 165);
+            this.lblTask5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTask5.Location = new System.Drawing.Point(12, 450);
+            this.lblTask5.MaximumSize = new System.Drawing.Size(580, 0);
             this.lblTask5.Name = "lblTask5";
-            this.lblTask5.Size = new System.Drawing.Size(161, 17);
+            this.lblTask5.Size = new System.Drawing.Size(126, 13);
             this.lblTask5.TabIndex = 9;
             this.lblTask5.Text = "Информация о классах";
             // 
             // lblTask4
             // 
             this.lblTask4.AutoSize = true;
-            this.lblTask4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTask4.Location = new System.Drawing.Point(13, 125);
+            this.lblTask4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTask4.Location = new System.Drawing.Point(13, 350);
+            this.lblTask4.MaximumSize = new System.Drawing.Size(580, 0);
             this.lblTask4.Name = "lblTask4";
-            this.lblTask4.Size = new System.Drawing.Size(161, 17);
+            this.lblTask4.Size = new System.Drawing.Size(126, 13);
             this.lblTask4.TabIndex = 10;
             this.lblTask4.Text = "Информация о классах";
             // 
             // lblTask3
             // 
             this.lblTask3.AutoSize = true;
-            this.lblTask3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTask3.Location = new System.Drawing.Point(13, 87);
+            this.lblTask3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTask3.Location = new System.Drawing.Point(13, 200);
+            this.lblTask3.MaximumSize = new System.Drawing.Size(580, 0);
             this.lblTask3.Name = "lblTask3";
-            this.lblTask3.Size = new System.Drawing.Size(161, 17);
+            this.lblTask3.Size = new System.Drawing.Size(126, 13);
             this.lblTask3.TabIndex = 11;
             this.lblTask3.Text = "Информация о классах";
             // 
             // lblTask2
             // 
             this.lblTask2.AutoSize = true;
-            this.lblTask2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTask2.Location = new System.Drawing.Point(13, 51);
+            this.lblTask2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTask2.Location = new System.Drawing.Point(13, 100);
+            this.lblTask2.MaximumSize = new System.Drawing.Size(580, 0);
             this.lblTask2.Name = "lblTask2";
-            this.lblTask2.Size = new System.Drawing.Size(161, 17);
+            this.lblTask2.Size = new System.Drawing.Size(126, 13);
             this.lblTask2.TabIndex = 12;
             this.lblTask2.Text = "Информация о классах";
             // 
@@ -160,7 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 807);
+            this.ClientSize = new System.Drawing.Size(800, 511);
             this.Controls.Add(this.lblTask2);
             this.Controls.Add(this.lblTask3);
             this.Controls.Add(this.lblTask4);
